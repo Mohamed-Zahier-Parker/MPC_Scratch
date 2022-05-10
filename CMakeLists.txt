@@ -14,6 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
   mavros_msgs
 )
 
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -119,7 +121,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
-  /home/mohzap/catkin_ws/src/mpc_scratch_handler/include/mpc_scratch_handler/eigen
+  # /home/mohzap/catkin_ws/src/mpc_scratch_handler/include/mpc_scratch_handler/eigen
 )
 
 ## Declare a C++ library
@@ -210,7 +212,7 @@ include_directories(
 add_executable(MPC_Scratch src/MPC_Scratch.cpp)
 
 target_link_libraries(MPC_Scratch
-   ${catkin_LIBRARIES} ${mavros_LIBRARIES} ${mavlink_LIBRARIES}
+   ${catkin_LIBRARIES} ${mavros_LIBRARIES} ${mavlink_LIBRARIES} Eigen3::Eigen
 )
 
-link_directories(/home/mohzap/catkin_ws/src/mpc_scratch_handler/include/mpc_scratch_handler/eigen)
+# link_directories(/home/mohzap/catkin_ws/src/mpc_scratch_handler/include/mpc_scratch_handler/eigen)
